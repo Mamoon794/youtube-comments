@@ -20,3 +20,10 @@ request = youtube.commentThreads().list(
 )
 response = request.execute()
 nextOne = "12"
+
+new = set()
+comment_Num = 0
+
+while nextOne:
+    nextOne = response.get("nextPageToken")
+    items = response["items"]  # Gets All the replies
