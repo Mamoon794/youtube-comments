@@ -22,25 +22,26 @@ request = youtube.commentThreads().list(
 response = request.execute()
 nextOne = "12"
 
+#Keeps track of comments
 length = 0
 new = set()
 
-
+# While loop which keeps running until all the replies have been surfed through
 while nextOne:
     nextOne = response.get("nextPageToken")
-    items = response["items"]  # Gets All the replies
+    items = response["items"]  # Gets All the comments
     index = 0
     for item in items:
 
         # Gets the information for the actual replies
         reple = item.get("replies")
         if reple:
-            reple = reple.get("comments")  # Gets the comments of that reply
+            reple = reple.get("comments")  # Gets all the replies of that comment
             for comment in reple:
 
-                info = comment.get("snippet")   # The main snippet that gives the information of that reply
-                text = info.get("textDisplay")
-                name = info.get("authorDisplayName")
+                info = comment.get("snippet")                # The main snippet that gives the information of that reply
+                text = info.get("textDisplay")               #Gets the text of that comment
+                name = info.get("authorDisplayName")         #Gets the user that wrote the comment
 
                 if ("winner" in text.lower() or "congrat" in text.lower()) \
                         and "telegram" not in name.lower() and "telegraph" not in name.lower():
