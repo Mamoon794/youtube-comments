@@ -35,12 +35,14 @@ while nextOne:
         info = item['snippet']['topLevelComment']['snippet']         #Gets the top comment
         comment = info["textOriginal"]                               #Gets the text of that comment
         author = info['authorDisplayName']                           #Gets the user that wrote the comment
+
+        # The if satement that will need to be changed according to what the user wants to search for
         if "bot" in comment:
-            print(f"{author}: {comment}")
-            print(comment_Num)
+            print(f"{author}: {comment}")                            #Prints out the author and the comment
+            print(comment_Num)                                       #Prints the comment number
         comment_Num += 1
 
-
+    #Gets the next 100 comments
     request = youtube.commentThreads().list(
         part="snippet",
         videoId=video_id,
