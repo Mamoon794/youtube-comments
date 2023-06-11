@@ -37,3 +37,12 @@ while nextOne:
         comment_Num += 1
 
 
+    request = youtube.commentThreads().list(
+        part="snippet",
+        videoId=video_id,
+        maxResults=100,
+        pageToken=nextOne,
+        order="time"
+
+    )
+    response = request.execute()
