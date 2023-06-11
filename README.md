@@ -1,4 +1,4 @@
-# youtube-replies
+# youtube-comments
 This makes it so much easier to search for specific replies in a 
 youtube video. Currently the GUI is not made for it yet. I plan to make
 it in the future but for now, the user will need to change the code itself
