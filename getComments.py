@@ -42,7 +42,7 @@ while nextOne:
             print(comment_Num)                                       #Prints the comment number
         comment_Num += 1
 
-    #Gets the next 100 comments
+    #Gets the next 100 comments in order of time it was commented
     request = youtube.commentThreads().list(
         part="snippet",
         videoId=video_id,
