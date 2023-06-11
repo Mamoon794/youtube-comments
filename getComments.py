@@ -27,3 +27,13 @@ comment_Num = 0
 while nextOne:
     nextOne = response.get("nextPageToken")
     items = response["items"]  # Gets All the replies
+    for item in items:
+        info = item['snippet']['topLevelComment']['snippet']
+        comment = info["textOriginal"]
+        author = info['authorDisplayName']
+        if "bot" in comment:
+            print(f"{author}: {comment}")
+            print(comment_Num)
+        comment_Num += 1
+
+
