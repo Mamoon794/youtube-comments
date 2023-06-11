@@ -43,15 +43,18 @@ while nextOne:
                 text = info.get("textDisplay")               #Gets the text of that comment
                 name = info.get("authorDisplayName")         #Gets the user that wrote the comment
 
-                if ("winner" in text.lower() or "congrat" in text.lower()) \
-                        and "telegram" not in name.lower() and "telegraph" not in name.lower():
+                # The if satement that will need to be changed according to what the user wants to search for
+                if "bot" in text.lower:
                     new.add(name)
+
+                    # Not sure what this is for, I'll change it later but feel free to change the next 3-4 lines of
+                    # code if needed
                     if len(new) > length:
                         print(name + ": " + text)
 
                     length = len(new)
-                    # print("================================\n")
 
+    # Gets the next 100 comments in order of time
     request = youtube.commentThreads().list(
         part="replies",
         videoId=video_id,
