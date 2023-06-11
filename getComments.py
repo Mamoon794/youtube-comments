@@ -26,13 +26,15 @@ nextOne = "12"
 new = set()
 comment_Num = 0
 
+# While loop which keeps running until all the comments have been surfed through
 while nextOne:
+    #Gets the next 10 comments
     nextOne = response.get("nextPageToken")
-    items = response["items"]  # Gets All the replies
+    items = response["items"]  # Gets All the comments
     for item in items:
-        info = item['snippet']['topLevelComment']['snippet']
-        comment = info["textOriginal"]
-        author = info['authorDisplayName']
+        info = item['snippet']['topLevelComment']['snippet']         #Gets the top comment
+        comment = info["textOriginal"]                               #Gets the text of that comment
+        author = info['authorDisplayName']                           #Gets the user that wrote the comment
         if "bot" in comment:
             print(f"{author}: {comment}")
             print(comment_Num)
